@@ -1,27 +1,37 @@
-# Codewithfarooq
+### Development
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.6.
+- `npm run start`
+- in your browser [http://localhost:4200](http://localhost:4200)
 
-## Development server
+### Compilation
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- `npm run build` ( without SSR)
+- `npm run build:ssr` ( with SSR)
 
-## Code scaffolding
+### Production
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- `npm run serve:ssr`
+- in your browser [http://localhost:4000](http://localhost:4000)
 
-## Build
+# Firebase Deployment:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+npm run build:ssr
 
-## Running unit tests
+firebase init
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+folder location: dist/codewithfarooq/browser
 
-## Running end-to-end tests
+Goto the above location:
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+firebase deploy
 
-## Further help
+# ISSUES:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+1. While running npm i if you face below issue: Unhandled rejection Error: EACCES: permission denied, mkdir
+   SOLUTION:
+   sudo chown -R $(whoami) ~/.npm
+
+2. Error: Failed to get Firebase project codewithfarooq. Please make sure the project exists and your account has permission to access it.
+   SOLUTION: logout and login
+
+https://github.com/bezkoder/angular-10-firebase-crud
