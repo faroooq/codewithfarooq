@@ -19,13 +19,13 @@ export class CoursesComponent implements OnInit {
     this.getCourses()
   }
 
-  getCourses(){
-    this.firebaseService.getUsers()
-    .subscribe(result => {
-      this.courses = result;
-      this.age_filtered_items = result;
-      this.name_filtered_items = result;
-    })
+  getCourses() {
+    this.firebaseService.getCourses()
+      .subscribe(result => {
+        this.courses = result;
+        this.age_filtered_items = result;
+        this.name_filtered_items = result;
+      })
   }
 
 }

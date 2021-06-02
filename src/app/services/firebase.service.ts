@@ -25,8 +25,12 @@ export class FirebaseService {
     return this.db.collection('users').doc(userKey).delete();
   }
 
-  getUsers() {
+  getCourses() {
     return this.db.collection('courses').valueChanges();
+  }
+
+  getCoursesList() {
+    return this.db.collection('courses-list').valueChanges();
   }
 
   searchUsers(searchValue) {

@@ -24,7 +24,7 @@
                                     aria-label="Success:">
                                     <use xlink:href="#check-circle-fill" />
                                 </svg>
-                                <div>{{enrollMsg}}</div>
+                                <div *ngIf="inquiryForm">{{enrollMsg}}</div>
                             </div>
                         </div>
                         <h4 class="text-white">START CODING WITH ME !!</h4>
@@ -48,7 +48,7 @@
                             <div class="col-md-12">
                                 <select id="inputState" class="form-select" formControlName="course">
                                     <option selected>Choose Course...</option>
-                                    <option *ngFor="let course of courses">{{course.name}}</option>
+                                    <option *ngFor="let course of coursesList">{{course.name}}</option>
                                 </select>
                             </div>
                             <div class="col-12">
@@ -63,8 +63,20 @@
                     </div>
                 </div>
                 <div class="col-lg-6 order-first pb-3">
-                    <h1><i>"Stop Listening, Start Coding"</i></h1>
-                    <h5><i>The best way to learn technology is to Code...</i></h5>
+                    <h1>
+                        <i>
+                            <sup>
+                                <span class="material-icons">
+                                    format_quote
+                                </span>
+                            </sup>The best way to learn technology is Code...
+                            <sup>
+                                <span class="material-icons">
+                                    format_quote
+                                </span>
+                            </sup>
+                        </i>
+                    </h1>
                     <br />
                     <h4 class="text-white">
                         <i>"Join with me and develop your coding skills."</i>

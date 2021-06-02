@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FirebaseService } from '../services/firebase.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  items: Array<any>;
+  name_filtered_items: Array<any>;
+  searchValue: string = "";
+  constructor(public firebaseService: FirebaseService) { }
 
   ngOnInit(): void {
   }

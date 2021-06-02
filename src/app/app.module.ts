@@ -14,6 +14,9 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { EnrollFormComponent } from './enroll-form/enroll-form.component';
 import { SharedModule } from './shared/shared.module';
+import { SocialButtonsComponent } from './social-buttons/social-buttons.component';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { SharedModule } from './shared/shared.module';
     CarouselComponent,
     FeaturesComponent,
     FooterComponent,
-    EnrollFormComponent
+    EnrollFormComponent,
+    SocialButtonsComponent,
+    AboutComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

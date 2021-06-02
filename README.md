@@ -34,4 +34,5 @@ firebase deploy
 2. Error: Failed to get Firebase project codewithfarooq. Please make sure the project exists and your account has permission to access it.
    SOLUTION: logout and login
 
-https://github.com/bezkoder/angular-10-firebase-crud
+3. More than one module matches. Use the skip-import option to skip importing the component into the closest module or use the module option to specify a module.
+   SOLUTION: ng g c new-component --module app

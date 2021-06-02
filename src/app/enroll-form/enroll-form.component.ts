@@ -9,7 +9,7 @@ import { FirebaseService } from '../services/firebase.service';
 })
 export class EnrollFormComponent implements OnInit {
 
-  courses: Array<any>;
+  coursesList: Array<any>;
   formSubmitted: boolean = false;
   enrollMsg: string = 'Thank you for enrolling the course. We will get back to you soon..';
   inquiryForm = this.formBuilder.group({
@@ -22,13 +22,13 @@ export class EnrollFormComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, public firebaseService: FirebaseService) { }
 
   ngOnInit() {
-    this.getCourses()
+    this.getCoursesList()
   }
 
-  getCourses() {
-    this.firebaseService.getUsers()
+  getCoursesList() {
+    this.firebaseService.getCoursesList()
       .subscribe(result => {
-        this.courses = result;
+        this.coursesList = result;
       })
   }
 
