@@ -1,0 +1,85 @@
+<div class="bg-dark text-secondary px-4 py-5">
+  <div class="py-1">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 order-last">
+          <div class="col-lg-6 mx-auto">
+            <h4 class="text-white">START CODING WITH ME !!</h4>
+            <form
+              class="row g-3"
+              [formGroup]="inquiryForm"
+              (ngSubmit)="onSubmit(inquiryForm.value)"
+            >
+              <div class="col-md-6">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputFirstName"
+                  placeholder="First Name"
+                  formControlName="first_name"
+                />
+              </div>
+              <div class="col-md-6">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputLastName"
+                  placeholder="Last Name"
+                  formControlName="last_name"
+                />
+              </div>
+              <div class="col-12">
+                <input
+                  type="email"
+                  class="form-control"
+                  id="inputEmail"
+                  placeholder="Email"
+                  formControlName="email"
+                />
+              </div>
+              <div class="col-12">
+                <input
+                  type="phone"
+                  class="form-control"
+                  id="inputPhone"
+                  placeholder="Phone"
+                  formControlName="phone"
+                />
+              </div>
+              <div class="col-md-12">
+                <select
+                  id="inputState"
+                  class="form-select"
+                  formControlName="course"
+                >
+                  <option selected>Choose Course...</option>
+                  <option>...</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <button
+                  [disabled]="!inquiryForm.valid"
+                  type="submit"
+                  class="btn btn-danger me-2"
+                >
+                  ENROLL NOW
+                </button>
+                <button type="button" class="btn btn-outline-danger">
+                  DEMO SESSION
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-lg-6 order-first pb-3">
+          <h1><i>"Stop Listening, Start Coding"</i></h1>
+          <h5><i>The best way to learn technology is to Code...</i></h5>
+          <br />
+          <h4 class="text-white">
+            <i>"Join with me and develop your coding skills."</i>
+          </h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="container marketing">
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row">
+        <div *ngFor="let course of courses" class="col-sm-4 mb-4">
+          <div class="card">
+            <img
+              src="./../../assets/images/{{ course.img_name }}"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <h5 class="card-title"><strong></strong>{{ course.name }}</h5>
+              <p class="card-text">
+                {{ course.description }}
+              </p>
+            </div>
+            <button type="button" class="btn btn-lg btn-outline-danger">
+              VIEW COURSE
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
