@@ -1,3 +1,6 @@
+Access this website from the below url:
+http://codewithfarooq.web.app/
+
 ### Development
 
 - `npm run start`
