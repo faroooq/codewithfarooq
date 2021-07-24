@@ -1,27 +1,15 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
-  <div class="container-fluid">
-    <img width="50px" height="50px" src="./../../assets/images/frq-logo.png" class="rounded mx-auto d-block ms-2"
-      alt="..." />
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-      aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse ms-2" id="navbarCollapse">
-      <ul class="navbar-nav me-auto mb-2 mb-md-0">
-        <li class="nav-item m-1">
-          <a class="nav-link active" aria-current="page" href="#"><strong>Home</strong></a>
-        </li>
-        <li class="nav-item m-1">
-          <a class="nav-link" [routerLink]="['about']"><strong>About</strong></a>
-        </li>
-        <li class="nav-item m-1">
-          <a class="nav-link" href="#"><strong>Contact</strong></a>
-        </li>
-      </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
-  </div>
-</nav>
+<header>
+  <nav class="nav collapsible">
+    <a aria-label="codewithfarooq" class="nav__brand" href="#">
+      <img src="../../assets/images/frq-logo.png" alt="" />
+    </a>
+    <svg class="icon icon--white nav__toggler">
+      <use href="../../assets/images/sprite.svg#menu"></use>
+    </svg>
+    <ul class="list nav__list collapsible__content">
+      <li class="nav__item"><a href="#">Home</a></li>
+      <li class="nav__item"><a href="#">About</a></li>
+      <li class="nav__item"><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+</header>

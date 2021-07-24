@@ -17,6 +17,8 @@ import { SharedModule } from './shared/shared.module';
 import { SocialButtonsComponent } from './social-buttons/social-buttons.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
+import { BlockHeroComponent } from './block-hero/block-hero.component';
+import { AboutMeComponent } from './about-me/about-me.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { ContactComponent } from './contact/contact.component';
     EnrollFormComponent,
     SocialButtonsComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    BlockHeroComponent,
+    AboutMeComponent
   ],
   imports: [
     BrowserModule,
