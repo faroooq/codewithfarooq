@@ -49,9 +49,15 @@
 }
 
 .video__control {
-  width: 500px;
+  width: 70rem;
+  height: 30rem;
   align-self: center;
   vertical-align: middle;
+}
+@media screen and (min-width: 0px) and (max-width: 768px) {
+  .video__control {
+    width: 355px;
+  }
 }
 /* Buttons */
 

@@ -20,11 +20,14 @@ http://codewithfarooq.web.app/
 
 npm run build:ssr
 
+<!-- No need to execute the below command for every deployment. -->
+
 firebase init
 
 folder location: dist/codewithfarooq/browser
+cd dist/codewithfarooq/browser
 
-Goto the above location:
+# Goto the above location and run below command to deploy:
 
 firebase deploy
 
