@@ -32,6 +32,12 @@ export class FirebaseService {
     return this.db.collection('courses-list').valueChanges();
   }
 
+  getCoursesDetails(courseId) {
+    return this.db
+      .collection('courses-details')
+      .valueChanges({ course_id: 'courseId' });
+  }
+
   searchUsers(searchValue) {
     return this.db
       .collection('users', (ref) =>

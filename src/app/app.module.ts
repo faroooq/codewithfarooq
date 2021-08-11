@@ -16,6 +16,7 @@ import { SocialButtonsComponent } from './social-buttons/social-buttons.componen
 import { ContactComponent } from './contact/contact.component';
 import { AboutMeComponent } from './about-me/about-me.component';
 import { LecturesComponent } from './lectures/lectures.component';
+import { SafePipe } from './shared/pipe/safe.pipe';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { LecturesComponent } from './lectures/lectures.component';
     ContactComponent,
     AboutMeComponent,
     LecturesComponent,
+    SafePipe,
   ],
   imports: [
     BrowserModule,

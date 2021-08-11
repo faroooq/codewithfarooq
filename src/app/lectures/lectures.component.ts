@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FirebaseService } from '../services/firebase.service';
 
 @Component({
   selector: 'app-lectures',
@@ -6,7 +7,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lectures.component.css'],
 })
 export class LecturesComponent implements OnInit {
-  constructor() {}
+  coursesDetails: any;
+  youtubeUrl: string;
 
-  ngOnInit(): void {}
+  constructor(public firebaseService: FirebaseService) {}
+
+  ngOnInit(): void {
+    this.youtubeUrl = 'https://www.youtube.com/embed/fUFyIFyRSAg';
+    this.getCoursesDetails('1001');
+  }
+
+  getCoursesDetails(courseId) {
+    this.firebaseService.getCoursesDetails(courseId).subscribe((result) => {
+      this.coursesDetails = result;
+    });
+  }
+
+  onClick(youtubeUrl) {
+    this.youtubeUrl = youtubeUrl;
+  }
 }

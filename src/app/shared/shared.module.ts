@@ -7,7 +7,11 @@ import { SeoGuard } from './seo-service/seo.guard';
 import { RequestCache } from './services/cache.service';
 import { ThemeService } from './services/theme.service';
 import { CachingInterceptor } from './services/cache.interceptor';
-import { HTTP_INTERCEPTORS, HttpClientModule, HttpClient } from '@angular/common/http';
+import {
+  HTTP_INTERCEPTORS,
+  HttpClientModule,
+  HttpClient,
+} from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -19,10 +23,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  declarations: [
-    SafePipe,
-    ArraySortPipe
-  ],
+  declarations: [ArraySortPipe],
   providers: [
     HttpClient,
     SeoService,
@@ -30,7 +31,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ThemeService,
     CachingInterceptor,
     RequestCache,
-    { provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true },
   ],
   exports: [
     CommonModule,
@@ -38,9 +39,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule,
-    SafePipe,
-    ArraySortPipe
-  ]
+    ArraySortPipe,
+  ],
 })
-
-export class SharedModule { }
+export class SharedModule {}
