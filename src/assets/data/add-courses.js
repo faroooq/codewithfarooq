@@ -1,3 +1,4 @@
+// Run this file: right click > run code
 const firebase = require("firebase");
 // Required for side-effects
 require("firebase/firestore");
@@ -19,26 +20,26 @@ var db = firebase.firestore();
 var menu = [
   {
     id: 1001,
-    img_name: "angular-pro.jpeg",
-    name: "Angular 10: Professional",
+    img_name: "html-css.jpeg",
+    name: "Mastering HTML - Part 1",
     description:
-      "Build professional, interactive apps with Angular - the most popular framework for building web apps.",
+      "Master advanced HTML5 & CSS3 concepts behind fast, beautiful and mobile-friendly websites.",
     price: "FREE",
     button_enabled: true,
   },
   {
     id: 1002,
-    img_name: "react.jpeg",
-    name: "React: Professional",
+    img_name: "html-css.jpeg",
+    name: "Mastering HTML - Part 2",
     description:
-      "Don't get left behind. React is the way forward to building fast, interactive web apps.",
+      "Master advanced HTML5 & CSS3 concepts behind fast, beautiful and mobile-friendly websites.",
     price: "FREE",
     button_enabled: true,
   },
   {
     id: 1003,
     img_name: "html-css.jpeg",
-    name: "Mastering HTML",
+    name: "Mastering HTML - Part 3",
     description:
       "Master advanced HTML5 & CSS3 concepts behind fast, beautiful and mobile-friendly websites.",
     price: "FREE",
@@ -46,33 +47,15 @@ var menu = [
   },
   {
     id: 1004,
-    img_name: "nodejs.png",
-    name: "The Complete Node.js Course",
+    img_name: "html-css.jpeg",
+    name: "Mastering HTML - Part 4",
     description:
-      "Learn to build highly-scalable, fast and secure RESTful APIs with Node, Express, and MongoDB.",
+      "Master advanced HTML5 & CSS3 concepts behind fast, beautiful and mobile-friendly websites.",
     price: "FREE",
     button_enabled: true,
   },
   {
     id: 1005,
-    img_name: "python.jpeg",
-    name: "Python for Beginner",
-    description:
-      "Everything you need to program in Python in one course (includes 3 real-world projects)",
-    price: "FREE",
-    button_enabled: true,
-  },
-  {
-    id: 1006,
-    img_name: "react-native.jpeg",
-    name: "React Native",
-    description:
-      "Everything you need to build and distribute professional-quality apps with React Native",
-    price: "FREE",
-    button_enabled: false,
-  },
-  {
-    id: 1007,
     img_name: "javascript.jpeg",
     name: "Mastering Javascript",
     description:
@@ -81,16 +64,43 @@ var menu = [
     button_enabled: true,
   },
   {
-    id: 1008,
-    img_name: "git.jpeg",
-    name: "Ultimate Git Course",
+    id: 1006,
+    img_name: "angular-pro.jpeg",
+    name: "Angular 10: Professional",
     description:
-      "Everything you need to know to use Git & GitHub to work effectively as a team",
+      "Build professional, interactive apps with Angular - the most popular framework for building web apps.",
+    price: "FREE",
+    button_enabled: true,
+  },
+  {
+    id: 1007,
+    img_name: "react.jpeg",
+    name: "React: Professional",
+    description:
+      "Don't get left behind. React is the way forward to building fast, interactive web apps.",
+    price: "FREE",
+    button_enabled: true,
+  },
+  {
+    id: 1008,
+    img_name: "nodejs.png",
+    name: "The Complete Node.js Course",
+    description:
+      "Learn to build highly-scalable, fast and secure RESTful APIs with Node, Express, and MongoDB.",
     price: "FREE",
     button_enabled: true,
   },
   {
     id: 1009,
+    img_name: "python.jpeg",
+    name: "Python for Beginner",
+    description:
+      "Everything you need to program in Python in one course (includes 3 real-world projects)",
+    price: "FREE",
+    button_enabled: true,
+  },
+  {
+    id: 1010,
     img_name: "java.jpeg",
     name: "Java Professional",
     description:
@@ -98,6 +108,15 @@ var menu = [
     price: "FREE",
     button_enabled: true,
   },
+  {
+    id: 1011,
+    img_name: "git.jpeg",
+    name: "Ultimate Git Course",
+    description:
+      "Everything you need to know to use Git & GitHub to work effectively as a team",
+    price: "FREE",
+    button_enabled: true,
+  }
 ];
 
 menu.forEach(function (obj) {

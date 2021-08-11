@@ -1,13 +1,24 @@
-<h2>Courses</h2>
-<div class="grid grid--1X2 grid--1X3 grid--1X4" style="margin-bottom: 3rem">
-  <div *ngFor="let course of courses" class="plan plan--popular">
-    <div class="card card--secondary">
-      <img src="./../../assets/images/{{ course.img_name }}" />
-      <div class="card__body">
-        <h4>{{ course.name }}</h4>
-        <p>
-          {{ course.description }}
-        </p>
+<div id="courses">
+  <div class="grid grid--1X2 grid--1X3 grid--1X4" style="margin-bottom: 3rem">
+    <div
+      (click)="gotoCourse(course.id)"
+      *ngFor="let course of courses | sort: 'id'"
+      class="plan plan--popular"
+      style="margin: 0.5rem"
+    >
+      <div
+        [ngClass]="{ 'card--enabled': course.button_enabled }"
+        class="card card--secondary"
+      >
+        <img src="./../../assets/images/{{ course.img_name }}" />
+        <div class="card__body">
+          <h4>
+            {{ course.name }}
+          </h4>
+          <p style="color: #918ca4 !important">
+            {{ course.description }}
+          </p>
+        </div>
       </div>
     </div>
   </div>
