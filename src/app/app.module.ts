@@ -17,6 +17,8 @@ import { ContactComponent } from './contact/contact.component';
 import { AboutMeComponent } from './about-me/about-me.component';
 import { LecturesComponent } from './lectures/lectures.component';
 import { SafePipe } from './shared/pipe/safe.pipe';
+import { AboutComponent } from './about/about.component';
+import { CourseComponent } from './course/course.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { SafePipe } from './shared/pipe/safe.pipe';
     AboutMeComponent,
     LecturesComponent,
     SafePipe,
+    AboutComponent,
+    CourseComponent,
   ],
   imports: [
     BrowserModule,

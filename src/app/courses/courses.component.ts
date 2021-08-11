@@ -28,7 +28,6 @@ export class CoursesComponent implements OnInit {
   }
 
   gotoCourse(courseID) {
-    console.log('Navigate ' + courseID);
     this.router.navigateByUrl('listen');
   }
 }

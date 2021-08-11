@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FirebaseService } from '../services/firebase.service';
 
 @Component({
@@ -7,7 +8,11 @@ import { FirebaseService } from '../services/firebase.service';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
-  constructor() {}
+  constructor(public router: Router) {}
 
   ngOnInit(): void {}
+
+  navigate(url) {
+    this.router.navigateByUrl(url);
+  }
 }

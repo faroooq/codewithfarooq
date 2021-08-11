@@ -64,4 +64,14 @@ export class FirebaseService {
       course: value.course,
     });
   }
+
+  contactForm(value) {
+    return this.db.collection('contact').add({
+      first_name: value.first_name,
+      nameToSearch: value.first_name.toLowerCase(),
+      last_name: value.last_name,
+      email: value.email,
+      description: value.description,
+    });
+  }
 }
