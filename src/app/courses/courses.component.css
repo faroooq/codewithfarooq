@@ -43,7 +43,7 @@ img {
   background: #02cdf1;
 }
 .card--enabled {
-  background: #f4f3f3;
+  background: #fff;
 }
 .card--enabled:hover {
   color: #918ca4;

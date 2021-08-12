@@ -55,7 +55,7 @@ const routes: Routes = [
     },
   },
   {
-    path: 'listen',
+    path: 'course/:courseId',
     component: LecturesComponent,
     canActivate: [SeoGuard],
     data: {

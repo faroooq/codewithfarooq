@@ -19,7 +19,7 @@ var db = firebase.firestore();
 var menu = [
   {
     course_id: 1001,
-    course_name: "Master HTML & CSS Series",
+    course_name: "Master HTML & CSS Series 1",
     topics: [
       {
         topic_id: 1,

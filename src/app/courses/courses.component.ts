@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FirebaseService } from '../services/firebase.service';
-import { DocumentSnapshot } from '@firebase/firestore-types';
 import { Router } from '@angular/router';
-
+import { FirebaseService } from '../services/firebase.service';
 @Component({
   selector: 'app-courses',
   templateUrl: './courses.component.html',
@@ -27,7 +25,7 @@ export class CoursesComponent implements OnInit {
     });
   }
 
-  gotoCourse(courseID) {
-    this.router.navigateByUrl('listen');
+  gotoCourse(courseId) {
+    courseId != undefined ? this.router.navigate(['course', courseId]) : '#';
   }
 }
