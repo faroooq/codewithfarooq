@@ -38,6 +38,22 @@
   color: var(--color-body-darker);
   line-height: 1.3;
 }
+
+@media screen and (min-width: 0px) and (max-width: 768px) {
+  .quote {
+    margin-left: 3rem;
+    margin-right: 3rem;
+    text-align: center;
+  }
+  .quote__text {
+    margin: 2rem;
+  }
+
+  .testimonial {
+    padding: 0rem;
+  }
+}
+
 .quote__text {
   opacity: 0.6;
 }
@@ -89,8 +105,8 @@
     margin: 0;
   }
   .testimonial .quote {
-    margin: 5rem 0 0 6rem;
-    font-size: 120%;
+    /* margin: 5rem 0 0 6rem; */
+    font-size: 130%;
     line-height: 1.5;
   }
 }
@@ -128,6 +144,8 @@
 .block {
   --padding-vertical: 5rem;
   padding: var(--padding-vertical) 2rem;
+  /* margin: 4rem;
+  text-align: center; */
 }
 
 .block__header {

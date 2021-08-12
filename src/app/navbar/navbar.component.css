@@ -6,3 +6,6 @@
 a {
   cursor: pointer;
 }
+.active {
+  font-weight: 500;
+}

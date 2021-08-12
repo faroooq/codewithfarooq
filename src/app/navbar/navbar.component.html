@@ -17,12 +17,21 @@
       </a>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" (click)="navigate('')"
+          <a
+            [routerLinkActiveOptions]="{ exact: true }"
+            routerLinkActive="active"
+            class="nav-link"
+            [routerLink]="['/']"
             >Home</a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link" (click)="navigate('courses')">Courses</a>
+          <a
+            routerLinkActive="active"
+            class="nav-link"
+            [routerLink]="['/courses']"
+            >Courses</a
+          >
         </li>
         <li class="nav-item">
           <a
@@ -33,10 +42,12 @@
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link" (click)="navigate('about')">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" (click)="navigate('contact')">Contact</a>
+          <a
+            routerLinkActive="active"
+            class="nav-link"
+            [routerLink]="['/contact']"
+            >Contact</a
+          >
         </li>
       </ul>
       <div class="d-flex">

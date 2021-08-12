@@ -14,8 +14,7 @@
       <div class="list-group list-group-flush border-bottom scrollarea">
         <div *ngFor="let course of courses.topics" class="list">
           <a
-            style="border-right: 0"
-            href="#"
+            style="border-right: 0; cursor: crosshair"
             class="list-group-item list-group-item-action py-3 lh-tight"
             aria-current="true"
           >
@@ -30,7 +29,7 @@
           <div *ngFor="let lesson of course.lesson" class="lesson">
             <a
               (click)="onClick(lesson.youtube_url)"
-              style="border: 0"
+              style="border: 0; cursor: pointer"
               class="list-group-item list-group-item-action py-3 lh-tight"
             >
               <div
@@ -63,7 +62,6 @@
       </div>
     </nav>
     <iframe
-      style="margin: 2rem"
       class="video__control"
       [src]="youtubeUrl | safe"
       frameborder="0"
