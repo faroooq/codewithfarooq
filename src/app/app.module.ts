@@ -19,6 +19,12 @@ import { LecturesComponent } from './lectures/lectures.component';
 import { SafePipe } from './shared/pipe/safe.pipe';
 import { AboutComponent } from './about/about.component';
 import { CourseComponent } from './course/course.component';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AuthService } from './services/auth.service';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { VerifyEmailComponent } from './verify-email/verify-email.component';
 
 @NgModule({
   declarations: [
@@ -35,15 +41,20 @@ import { CourseComponent } from './course/course.component';
     SafePipe,
     AboutComponent,
     CourseComponent,
+    SignInComponent,
+    SignUpComponent,
+    ForgetPasswordComponent,
+    VerifyEmailComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    AngularFireAuthModule,
     SharedModule,
   ],
-  providers: [FirebaseService],
+  providers: [FirebaseService, AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

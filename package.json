@@ -28,7 +28,7 @@
     "@nguniversal/express-engine": "10.1.0",
     "bootstrap": "^5.1.0",
     "express": "4.17.1",
-    "firebase": "^8.6.3",
+    "firebase": "^7.24.0",
     "material-icons": "^0.7.0",
     "rxjs": "~6.6.0",
     "zone.js": "~0.10.2"
