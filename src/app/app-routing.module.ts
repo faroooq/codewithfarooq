@@ -63,7 +63,7 @@ const routes: Routes = [
   {
     path: 'course/:courseId',
     component: LecturesComponent,
-    canActivate: [SeoGuard],
+    canActivate: [SeoGuard, AuthGuard],
     data: {
       title: ['codewithfarooq'],
       desc: 'The best way to learn technology is Code... Join with me and develop your coding skills.',
@@ -136,6 +136,7 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent,
+    canActivate: [SeoGuard, AuthGuard],
     data: {
       title: ['codewithfarooq'],
       desc: 'The best way to learn technology is Code... Join with me and develop your coding skills.',
