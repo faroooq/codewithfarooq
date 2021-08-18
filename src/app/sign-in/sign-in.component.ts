@@ -12,8 +12,7 @@ import { FirebaseService } from '../services/firebase.service';
 export class SignInComponent implements OnInit {
   coursesList: Array<any>;
   formSubmitted: boolean = false;
-  enrollMsg: string =
-    'Thank you for contacting us. We will get back to you soon..';
+  errorMsg: string;
   inquiryForm = this.formBuilder.group({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
@@ -25,21 +24,25 @@ export class SignInComponent implements OnInit {
     public router: Router
   ) {}
 
-  ngOnInit() {}
-
-  onSubmit(formData) {
-    if (this.inquiryForm.valid) {
-      const _v = this.inquiryForm.value;
-      this.authService.SignIn(_v.email, _v.password);
-    }
+  ngOnInit() {
+    this.formSubmitted = false;
   }
 
-  resetFields() {
+  onSubmit(formData) {
+    this.errorMsg = '';
     this.formSubmitted = true;
-    this.inquiryForm = this.formBuilder.group({
-      email: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required),
-    });
+    if (this.inquiryForm.valid) {
+      const _v = this.inquiryForm.value;
+      this.authService.SignIn(_v.email, _v.password).then((response) => {
+        if (response && response.code) {
+          if (response.code === 'auth/user-not-found') {
+            this.errorMsg = 'No user found. please sign up.';
+          } else if (response.code === 'auth/wrong-password') {
+            this.errorMsg = 'You have entered wrong password.';
+          }
+        }
+      });
+    }
   }
 
   forgotPassword() {

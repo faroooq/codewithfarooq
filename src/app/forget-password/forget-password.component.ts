@@ -9,9 +9,10 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./forget-password.component.css'],
 })
 export class ForgetPasswordComponent implements OnInit {
-  enrollMsg: string =
-    'Thank you for contacting us. We will get back to you soon..';
-  inquiryForm = this.formBuilder.group({
+  formSubmitted: boolean = false;
+  errorMsg: string;
+  successMsg: string;
+  forgotForm = this.formBuilder.group({
     email: new FormControl('', [Validators.required, Validators.email]),
   });
   constructor(
@@ -20,18 +21,29 @@ export class ForgetPasswordComponent implements OnInit {
     public router: Router
   ) {}
 
-  ngOnInit() {}
-
-  onSubmit(formData) {
-    if (this.inquiryForm.valid) {
-      const _v = this.inquiryForm.value;
-      this.authService.ForgotPassword(_v.email);
-    }
+  ngOnInit() {
+    this.formSubmitted = false;
   }
 
-  resetFields() {
-    this.inquiryForm = this.formBuilder.group({
-      email: new FormControl('', Validators.required),
-    });
+  onSubmit(formData) {
+    this.errorMsg = '';
+    this.successMsg = '';
+    this.formSubmitted = true;
+    if (this.forgotForm.valid) {
+      const _v = this.forgotForm.value;
+      this.authService.ForgotPassword(_v.email).then((response) => {
+        if (
+          response &&
+          response.code &&
+          response.code === 'auth/user-not-found'
+        ) {
+          // console.log(this.errorMsg);
+          this.errorMsg = 'No user found. please sign up.';
+        } else {
+          // console.log(this.successMsg);
+          this.successMsg = 'Password reset email sent, check your inbox.';
+        }
+      });
+    }
   }
 }

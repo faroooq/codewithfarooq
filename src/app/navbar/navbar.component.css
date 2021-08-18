@@ -9,3 +9,8 @@ a {
 .active {
   font-weight: 500;
 }
+
+.dropdown-item.active,
+.dropdown-item:active {
+  background: #dc3545;
+}

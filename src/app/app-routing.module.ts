@@ -8,6 +8,7 @@ import { EnrollFormComponent } from './enroll-form/enroll-form.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { HomeComponent } from './home/home.component';
 import { LecturesComponent } from './lectures/lectures.component';
+import { ProfileComponent } from './profile/profile.component';
 import { AuthGuard } from './services/auth.guard';
 import { SeoGuard } from './shared/seo-service/seo.guard';
 import { SignInComponent } from './sign-in/sign-in.component';
@@ -125,6 +126,16 @@ const routes: Routes = [
   {
     path: 'email-verify',
     component: VerifyEmailComponent,
+    data: {
+      title: ['codewithfarooq'],
+      desc: 'The best way to learn technology is Code... Join with me and develop your coding skills.',
+      keywords:
+        'Technologies, Software, Training, Solutions, Web, Courses, Projects, Coding',
+    },
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
     data: {
       title: ['codewithfarooq'],
       desc: 'The best way to learn technology is Code... Join with me and develop your coding skills.',

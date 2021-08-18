@@ -57,7 +57,7 @@ export class AuthService {
         this.SetUserData(result.user);
       })
       .catch((error) => {
-        window.alert(error.message);
+        return error;
       });
   }
 
@@ -84,7 +84,7 @@ export class AuthService {
         this.firebaseService.promotionalUser(promotionalData);
       })
       .catch((error) => {
-        window.alert(error.message);
+        return error;
       });
   }
 
@@ -100,10 +100,11 @@ export class AuthService {
     return this.afAuth
       .sendPasswordResetEmail(passwordResetEmail)
       .then(() => {
-        window.alert('Password reset email sent, check your inbox.');
+        // console.log('Password reset link sent');
       })
       .catch((error) => {
-        window.alert(error);
+        return error;
+        // window.alert(error);
       });
   }
 

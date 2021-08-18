@@ -71,13 +71,37 @@
         </div>
         <div class="d-grid gap-1 d-md-flex justify-content-md-end">
           <div *ngIf="authService.isLoggedIn()">
-            <button
-              (click)="signOut()"
-              type="button"
-              class="btn me-md-2 btn-outline-danger"
-            >
-              Log Out
-            </button>
+            <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <img
+                    width="35"
+                    src="../../assets/images/frq-logo.png"
+                    alt="More"
+                  />
+                </a>
+                <ul
+                  class="dropdown-menu dropdown-menu-end"
+                  aria-labelledby="navbarDropdown"
+                >
+                  <li>
+                    <a class="dropdown-item" [routerLink]="['/profile']"
+                      >Profile</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" (click)="signOut()">Log Out</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
           </div>
         </div>
       </div>

@@ -15,8 +15,7 @@ import { FirebaseService } from '../services/firebase.service';
 export class ContactComponent implements OnInit {
   coursesList: Array<any>;
   formSubmitted: boolean = false;
-  enrollMsg: string =
-    'Thank you for contacting us. We will get back to you soon..';
+  successMsg: string;
   inquiryForm = this.formBuilder.group({
     first_name: new FormControl('', [Validators.required]),
     last_name: new FormControl('', [Validators.required]),
@@ -28,9 +27,13 @@ export class ContactComponent implements OnInit {
     public firebaseService: FirebaseService
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.successMsg = '';
+  }
 
   onSubmit(value) {
+    this.successMsg = '';
+    this.formSubmitted = true;
     if (this.inquiryForm.valid) {
       const _v = this.inquiryForm.value;
       const form = new FormData();
@@ -40,6 +43,8 @@ export class ContactComponent implements OnInit {
       form.append('description', _v.course);
       // Submit your form to app call
       this.firebaseService.contactForm(value).then((res) => {
+        this.successMsg =
+          'Thank you for contacting us. We will get back to you soon!';
         this.resetFields();
       });
     }

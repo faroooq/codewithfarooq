@@ -10,15 +10,16 @@ import { AuthService } from '../services/auth.service';
 import { FirebaseService } from '../services/firebase.service';
 
 @Component({
-  selector: 'app-sign-up',
-  templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.css'],
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.css'],
 })
-export class SignUpComponent implements OnInit {
+export class ProfileComponent implements OnInit {
   coursesList: Array<any>;
   formSubmitted: boolean = false;
-  errorMsg: string;
-  signupForm = this.formBuilder.group({
+  enrollMsg: string =
+    'Thank you for contacting us. We will get back to you soon..';
+  inquiryForm = this.formBuilder.group({
     first_name: new FormControl('', [Validators.required]),
     last_name: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -34,15 +35,11 @@ export class SignUpComponent implements OnInit {
     public router: Router
   ) {}
 
-  ngOnInit() {
-    this.formSubmitted = false;
-  }
+  ngOnInit() {}
 
   onSubmit(value) {
-    this.errorMsg = '';
-    this.formSubmitted = true;
-    if (this.signupForm.valid) {
-      const _v = this.signupForm.value;
+    if (this.inquiryForm.valid) {
+      const _v = this.inquiryForm.value;
       if (_v.password === _v.confirm_password) {
         this.authService
           .SignUp(
@@ -53,21 +50,28 @@ export class SignUpComponent implements OnInit {
             _v.promotional
           )
           .then((result) => {
-            if (result) {
-              this.errorMsg = result;
-            } else {
-              if (this.errorMsg === '') {
-                this.router.navigate(['courses']);
-              }
-            }
+            this.enrollMsg = 'Thank you for Signing Up. Happy Learning!';
+            this.router.navigate(['courses']);
           })
           .catch((error) => {
-            this.errorMsg = error.message;
-            // console.log(error.code);
+            console.log('Something went wrong');
           });
       } else {
-        this.errorMsg = 'Your password and retype password does not match!';
+        window.alert('Your password and retype password does not match!');
       }
     }
+  }
+
+  resetFields() {
+    this.formSubmitted = true;
+    this.inquiryForm = this.formBuilder.group({
+      first_name: new FormControl('', Validators.required),
+      last_name: new FormControl('', Validators.required),
+      email: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required),
+      confirm_password: new FormControl('', Validators.required),
+      policy: new FormControl('', Validators.required),
+      promotional: new FormControl(''),
+    });
   }
 }

@@ -12,7 +12,7 @@ export class NavbarComponent implements OnInit {
   constructor(public router: Router, public authService: AuthService) {}
 
   ngOnInit(): void {
-    console.log('Auth : ' + this.authService.isLoggedIn());
+    // console.log('Auth : ' + this.authService.isLoggedIn());
   }
 
   navigate(url) {
@@ -28,6 +28,8 @@ export class NavbarComponent implements OnInit {
   }
 
   signOut() {
-    this.authService.SignOut();
+    setTimeout(() => {
+      this.authService.SignOut();
+    }, 1000);
   }
 }
