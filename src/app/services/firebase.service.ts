@@ -65,6 +65,14 @@ export class FirebaseService {
     });
   }
 
+  promotionalUser(user) {
+    return this.db.collection('promotional_users').add({
+      first_name: user.first_name,
+      email: user.email,
+      promotional: user.promotional,
+    });
+  }
+
   contactForm(value) {
     return this.db.collection('contact').add({
       first_name: value.first_name,

@@ -54,7 +54,7 @@ import { VerifyEmailComponent } from './verify-email/verify-email.component';
     AngularFireAuthModule,
     SharedModule,
   ],
-  providers: [FirebaseService, AuthService],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { FirebaseService } from '../services/firebase.service';
 
@@ -20,21 +21,16 @@ export class SignInComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     public firebaseService: FirebaseService,
-    public authService: AuthService
+    public authService: AuthService,
+    public router: Router
   ) {}
 
   ngOnInit() {}
 
-  onSubmit(value) {
+  onSubmit(formData) {
     if (this.inquiryForm.valid) {
       const _v = this.inquiryForm.value;
-      const form = new FormData();
-      form.append('email', _v.email);
-      form.append('password', _v.password);
-      // Submit your form to app call
-      this.firebaseService.contactForm(value).then((res) => {
-        this.resetFields();
-      });
+      this.authService.SignIn(_v.email, _v.password);
     }
   }
 
@@ -44,5 +40,9 @@ export class SignInComponent implements OnInit {
       email: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
     });
+  }
+
+  forgotPassword() {
+    this.router.navigateByUrl('forgot');
   }
 }

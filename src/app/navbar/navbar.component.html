@@ -52,14 +52,33 @@
       </ul>
       <div class="d-flex">
         <div class="d-grid gap-1 d-md-flex justify-content-md-end">
-          <button
-            (click)="signIn()"
-            type="button"
-            class="btn me-md-2 btn-outline-danger"
-          >
-            Login
-          </button>
-          <button class="btn btn-danger" type="button">Sign Up</button>
+          <div *ngIf="!authService.isLoggedIn()">
+            <button
+              (click)="signIn()"
+              type="button"
+              class="btn me-md-2 btn-outline-danger"
+            >
+              Log In
+            </button>
+            <button
+              (click)="signUp()"
+              type="button"
+              class="btn me-md-2 btn-danger"
+            >
+              Sign Up
+            </button>
+          </div>
+        </div>
+        <div class="d-grid gap-1 d-md-flex justify-content-md-end">
+          <div *ngIf="authService.isLoggedIn()">
+            <button
+              (click)="signOut()"
+              type="button"
+              class="btn me-md-2 btn-outline-danger"
+            >
+              Log Out
+            </button>
+          </div>
         </div>
       </div>
     </div>

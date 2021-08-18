@@ -12,6 +12,7 @@
 .forgot-link:hover,
 .forgot-link:focus {
   color: #dc3545;
+  cursor: pointer;
 }
 
 .forgot-link {

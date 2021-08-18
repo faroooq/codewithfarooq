@@ -62,7 +62,7 @@ const routes: Routes = [
   {
     path: 'course/:courseId',
     component: LecturesComponent,
-    canActivate: [SeoGuard, AuthGuard],
+    canActivate: [SeoGuard],
     data: {
       title: ['codewithfarooq'],
       desc: 'The best way to learn technology is Code... Join with me and develop your coding skills.',
@@ -95,7 +95,6 @@ const routes: Routes = [
   {
     path: 'login',
     component: SignInComponent,
-    canActivate: [AuthGuard],
     data: {
       title: ['codewithfarooq'],
       desc: 'The best way to learn technology is Code... Join with me and develop your coding skills.',
@@ -104,9 +103,8 @@ const routes: Routes = [
     },
   },
   {
-    path: 'sign-up',
+    path: 'signup',
     component: SignUpComponent,
-    canActivate: [AuthGuard],
     data: {
       title: ['codewithfarooq'],
       desc: 'The best way to learn technology is Code... Join with me and develop your coding skills.',
@@ -117,7 +115,6 @@ const routes: Routes = [
   {
     path: 'forgot',
     component: ForgetPasswordComponent,
-    canActivate: [AuthGuard],
     data: {
       title: ['codewithfarooq'],
       desc: 'The best way to learn technology is Code... Join with me and develop your coding skills.',
@@ -128,7 +125,6 @@ const routes: Routes = [
   {
     path: 'email-verify',
     component: VerifyEmailComponent,
-    canActivate: [AuthGuard],
     data: {
       title: ['codewithfarooq'],
       desc: 'The best way to learn technology is Code... Join with me and develop your coding skills.',

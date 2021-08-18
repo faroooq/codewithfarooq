@@ -6,13 +6,20 @@ import {
   AngularFirestoreDocument,
 } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
+import { FirebaseService } from './firebase.service';
 
 export interface User {
   uid: string;
   email: string;
   displayName: string;
+  lastName: string;
   photoURL: string;
   emailVerified: boolean;
+}
+export interface Promotional {
+  first_name: string;
+  email: string;
+  promotional: string;
 }
 
 @Injectable({
@@ -20,12 +27,13 @@ export interface User {
 })
 export class AuthService {
   userState: any;
-
+  userData: User;
   constructor(
     public afs: AngularFirestore,
     public afAuth: AngularFireAuth,
     public router: Router,
-    public ngZone: NgZone
+    public ngZone: NgZone,
+    public firebaseService: FirebaseService
   ) {
     this.afAuth.authState.subscribe((user) => {
       if (user) {
@@ -44,7 +52,7 @@ export class AuthService {
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
         this.ngZone.run(() => {
-          this.router.navigate(['dashboard']);
+          this.router.navigate(['courses']);
         });
         this.SetUserData(result.user);
       })
@@ -53,12 +61,27 @@ export class AuthService {
       });
   }
 
-  SignUp(email, password) {
+  SignUp(email, password, firstName, lastName, promotional) {
     return this.afAuth
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
-        this.SendVerificationMail();
-        this.SetUserData(result.user);
+        // this.SendVerificationMail();
+        const userState: User = {
+          uid: result.user.uid,
+          email: result.user.email,
+          displayName: firstName,
+          lastName: lastName,
+          photoURL: result.user.photoURL,
+          emailVerified: true,
+        };
+        this.SetUserData(userState);
+
+        const promotionalData: Promotional = {
+          first_name: firstName,
+          email: email,
+          promotional: promotional,
+        };
+        this.firebaseService.promotionalUser(promotionalData);
       })
       .catch((error) => {
         window.alert(error.message);
@@ -84,9 +107,9 @@ export class AuthService {
       });
   }
 
-  get isLoggedIn(): boolean {
+  isLoggedIn() {
     const user = JSON.parse(localStorage.getItem('user'));
-    return user !== null && user.emailVerified !== false ? true : false;
+    return user !== null ? true : false;
   }
 
   GoogleAuth() {
@@ -115,6 +138,7 @@ export class AuthService {
       uid: user.uid,
       email: user.email,
       displayName: user.displayName,
+      lastName: user.lastName !== undefined ? user.lastName : '',
       photoURL: user.photoURL,
       emailVerified: user.emailVerified,
     };
@@ -126,7 +150,7 @@ export class AuthService {
   SignOut() {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('user');
-      this.router.navigate(['sign-in']);
+      this.router.navigate(['']);
     });
   }
 }

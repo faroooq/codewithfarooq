@@ -11,7 +11,9 @@ import { FirebaseService } from '../services/firebase.service';
 export class NavbarComponent implements OnInit {
   constructor(public router: Router, public authService: AuthService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log('Auth : ' + this.authService.isLoggedIn());
+  }
 
   navigate(url) {
     this.router.navigateByUrl(url);
@@ -19,5 +21,13 @@ export class NavbarComponent implements OnInit {
 
   signIn() {
     this.router.navigateByUrl('login');
+  }
+
+  signUp() {
+    this.router.navigateByUrl('signup');
+  }
+
+  signOut() {
+    this.authService.SignOut();
   }
 }

@@ -78,7 +78,7 @@
                 <input
                   type="email"
                   class="form-control"
-                  id="inputEmail"
+                  id="email"
                   formControlName="email"
                 />
                 <div id="emailHelp" class="form-text">
@@ -86,13 +86,11 @@
                 </div>
               </div>
               <div class="mb-1">
-                <label for="exampleInputPassword1" class="form-label"
-                  >Password</label
-                >
+                <label for="password" class="form-label">Password</label>
                 <input
                   type="password"
                   class="form-control"
-                  id="inputPassword"
+                  id="password"
                   formControlName="password"
                 />
               </div>
@@ -102,13 +100,15 @@
                   type="submit"
                   class="btn btn-danger btn-lg col-12"
                 >
-                  Login
+                  Log In
                 </button>
               </div>
-              <div class="col-12">
-                <a class="forgot-link" href="#">Forgot Password?</a>
-              </div>
             </form>
+            <div class="col-12 mt-3">
+              <a class="forgot-link" (click)="forgotPassword()"
+                >Forgot Password?</a
+              >
+            </div>
           </div>
         </div>
       </div>
