@@ -11,12 +11,20 @@
     >
       <span class="navbar-toggler-icon"></span>
     </button>
+    <a class="navbar-brand" (click)="navigate('')">
+      <img width="40" src="../../assets/images/logo_3.png" alt="" />
+    </a>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-      <a class="navbar-brand" (click)="navigate('')">
-        <img width="60" src="../../assets/images/frq-logo.png" alt="" />
+      <a style="display: none" class="navbar-brand" (click)="navigate('')">
+        <img
+          width="40"
+          height="40"
+          src="../../assets/images/logo_3.png"
+          alt=""
+        />
       </a>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a
             [routerLinkActiveOptions]="{ exact: true }"
             routerLinkActive="active"
@@ -24,9 +32,10 @@
             [routerLink]="['/']"
             >Home</a
           >
-        </li>
+        </li> -->
         <li class="nav-item">
           <a
+            [routerLinkActiveOptions]="{ exact: true }"
             routerLinkActive="active"
             class="nav-link"
             [routerLink]="['/courses']"

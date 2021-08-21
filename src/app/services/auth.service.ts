@@ -110,6 +110,7 @@ export class AuthService {
 
   isLoggedIn() {
     const user = JSON.parse(localStorage.getItem('user'));
+    // console.log('user : ' + JSON.stringify(user));
     return user !== null ? true : false;
   }
 
@@ -140,7 +141,7 @@ export class AuthService {
       email: user.email,
       displayName: user.displayName,
       lastName: user.lastName !== undefined ? user.lastName : '',
-      photoURL: user.photoURL,
+      photoURL: user.photoURL !== undefined ? user.photoURL : '',
       emailVerified: user.emailVerified,
     };
     return userRef.set(userState, {

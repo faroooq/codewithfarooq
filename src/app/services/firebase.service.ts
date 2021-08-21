@@ -12,11 +12,11 @@ export class FirebaseService {
   }
 
   getUser(userKey) {
-    return this.db.collection('users').doc(userKey);
+    return this.db.collection('users').doc(userKey).valueChanges();
   }
 
   updateUser(userKey, value) {
-    value.nameToSearch = value.name.toLowerCase();
+    // value.nameToSearch = value.name.toLowerCase();
     return this.db.collection('users').doc(userKey).set(value);
   }
 

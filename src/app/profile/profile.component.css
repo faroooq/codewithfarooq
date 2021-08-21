@@ -1,0 +1,9 @@
+.forgot-link:hover,
+.forgot-link:focus {
+  color: #dc3545;
+  cursor: pointer;
+}
+
+.forgot-link {
+  color: rgb(167, 165, 165);
+}

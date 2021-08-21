@@ -14,3 +14,9 @@ a {
 .dropdown-item:active {
   background: #dc3545;
 }
+
+@media (min-width: 0px) and (max-width: 768px) {
+  logo-display {
+    display: none;
+  }
+}
