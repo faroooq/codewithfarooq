@@ -1,12 +1,17 @@
-<div id="courses">
+<div *ngIf="loading" class="d-flex justify-content-center">
+  <div class="spinner-border" style="width: 6rem; height: 6rem" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+<div *ngIf="!loading" id="courses">
   <div class="grid grid--1X2 grid--1X3 grid--1X4" style="margin-bottom: 3rem">
     <div
-      (click)="gotoCourse(course.id)"
       *ngFor="let course of courses | sort: 'id'"
       class="plan plan--popular"
       style="margin: 0.5rem"
     >
       <div
+        (click)="gotoCourse(course.id)"
         [ngClass]="{ 'card--enabled': course.button_enabled }"
         class="card card--secondary"
       >

@@ -10,15 +10,18 @@ export class CoursesComponent implements OnInit {
   courses: Array<any>;
   age_filtered_items: Array<any>;
   name_filtered_items: Array<any>;
+  loading: boolean;
 
   constructor(public firebaseService: FirebaseService, public router: Router) {}
 
   ngOnInit(): void {
+    this.loading = true;
     this.getCourses();
   }
 
   getCourses() {
     this.firebaseService.getCourses().subscribe((result) => {
+      this.loading = false;
       this.courses = result;
       this.age_filtered_items = result;
       this.name_filtered_items = result;

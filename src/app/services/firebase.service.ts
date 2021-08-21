@@ -34,8 +34,10 @@ export class FirebaseService {
 
   getCoursesDetails(courseId) {
     return this.db
-      .collection('courses-details')
-      .valueChanges({ course_id: 'courseId' });
+      .collection('courses-details', (ref) =>
+        ref.where('course_id', '==', courseId)
+      )
+      .valueChanges();
   }
 
   searchUsers(searchValue) {

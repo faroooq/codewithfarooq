@@ -11,6 +11,8 @@ export class LecturesComponent implements OnInit {
   coursesDetails: any;
   youtubeUrl: string;
   courseId: number = 1001;
+  empty_course: boolean;
+  loading: boolean;
 
   constructor(
     public firebaseService: FirebaseService,
@@ -18,8 +20,8 @@ export class LecturesComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.loading = true;
     this.youtubeUrl = 'https://www.youtube.com/embed/fUFyIFyRSAg';
-
     this.activatedRoute.params.forEach((params: Params) => {
       this.courseId = +params['courseId'];
     });
@@ -28,7 +30,14 @@ export class LecturesComponent implements OnInit {
 
   getCoursesDetails(courseId) {
     this.firebaseService.getCoursesDetails(courseId).subscribe((result) => {
+      this.loading = false;
       this.coursesDetails = result;
+      if (
+        Array.isArray(this.coursesDetails) &&
+        this.coursesDetails.length === 0
+      ) {
+        this.empty_course = true;
+      }
     });
   }
 

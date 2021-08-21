@@ -23,7 +23,6 @@
               class="d-flex w-100 align-items-center justify-content-between"
             >
               <p class="mb-1">{{ course.topic_id }}- {{ course.topic_name }}</p>
-              <!-- <small>32min</small> -->
             </div>
           </a>
           <div *ngFor="let lesson of course.lesson" class="lesson">
@@ -61,7 +60,18 @@
         >
       </div>
     </nav>
+    <div class="d-flex justify-content-center">
+      <div
+        *ngIf="loading"
+        class="spinner-border"
+        style="width: 6rem; height: 6rem"
+        role="status"
+      >
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
     <iframe
+      *ngIf="!empty_course && !loading"
       class="video__control"
       [src]="youtubeUrl | safe"
       frameborder="0"
