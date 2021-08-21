@@ -28,7 +28,9 @@ export class CoursesComponent implements OnInit {
     });
   }
 
-  gotoCourse(courseId) {
-    courseId != undefined ? this.router.navigate(['course', courseId]) : '#';
+  gotoCourse(course) {
+    if (course.id != undefined && !course.button_enabled) {
+      this.router.navigate(['course', course.id]);
+    }
   }
 }
