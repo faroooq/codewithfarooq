@@ -14,9 +14,9 @@
                 <div>{{ errorMsg }}</div>
               </div>
             </div>
-            <div class="col-12 mb-4">
+            <div class="col-12 mb-2">
               <button
-                class="btn col-12 google-btn"
+                class="btn col-12 google-btn  mb-2"
                 (click)="authService.GoogleAuth()"
                 type="submit"
               >
@@ -26,6 +26,12 @@
                   style="height: 2.9rem; object-fit: cover"
                 />
               </button>
+              <label class="form-check-label label" for="policy">
+                By Signing Up, you are agreeing to Code with Farooq's
+                <a [routerLink]="['/terms']">Terms of Use</a>
+                <span>&nbsp;&&nbsp;</span>
+                <a [routerLink]="['/policy']">Privacy Policy</a>
+              </label>
             </div>
             <div>
               <p style="text-align: center">or</p>
@@ -83,7 +89,7 @@
                   formControlName="confirm_password"
                 />
               </div>
-              <div class="col-12">
+              <!-- <div class="col-12">
                 <div class="form-check">
                   <input
                     class="form-check-input"
@@ -95,8 +101,8 @@
                     I agree to receive instructional and promotional emails.
                   </label>
                 </div>
-              </div>
-              <div class="col-12" style="margin-top: 0px">
+              </div> -->
+              <div class="col-12">
                 <div class="form-check">
                   <input
                     class="form-check-input"
@@ -106,9 +112,9 @@
                   />
                   <label class="form-check-label label" for="policy">
                     I agree to Code with Farooq's
-                    <a href="#">Terms of Use</a>
+                    <a [routerLink]="['/terms']">Terms of Use</a>
                     <span>&nbsp;&&nbsp;</span>
-                    <a href="#">Privacy Policy</a>
+                    <a [routerLink]="['/policy']">Privacy Policy</a>
                   </label>
                 </div>
               </div>

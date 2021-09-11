@@ -8,11 +8,13 @@ import { EnrollFormComponent } from './enroll-form/enroll-form.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { HomeComponent } from './home/home.component';
 import { LecturesComponent } from './lectures/lectures.component';
+import { PolicyComponent } from './policy/policy.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthGuard } from './services/auth.guard';
 import { SeoGuard } from './shared/seo-service/seo.guard';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { TermsComponent } from './terms/terms.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 
 const routes: Routes = [
@@ -137,6 +139,26 @@ const routes: Routes = [
     path: 'profile',
     component: ProfileComponent,
     canActivate: [SeoGuard, AuthGuard],
+    data: {
+      title: ['codewithfarooq'],
+      desc: 'The best way to learn technology is Code... Join with me and develop your coding skills.',
+      keywords:
+        'Technologies, Software, Training, Solutions, Web, Courses, Projects, Coding',
+    },
+  },
+  {
+    path: 'terms',
+    component: TermsComponent,
+    data: {
+      title: ['codewithfarooq'],
+      desc: 'The best way to learn technology is Code... Join with me and develop your coding skills.',
+      keywords:
+        'Technologies, Software, Training, Solutions, Web, Courses, Projects, Coding',
+    },
+  },
+  {
+    path: 'policy',
+    component: PolicyComponent,
     data: {
       title: ['codewithfarooq'],
       desc: 'The best way to learn technology is Code... Join with me and develop your coding skills.',

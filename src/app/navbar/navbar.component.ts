@@ -9,10 +9,15 @@ import { FirebaseService } from '../services/firebase.service';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
+  firstLetter: string;
+
   constructor(public router: Router, public authService: AuthService) {}
 
   ngOnInit(): void {
-    // console.log('Auth : ' + this.authService.isLoggedIn());
+    this.isLoggedIn();
+    // const user = this.authService.getLoggedInUser();
+    // this.firstLetter = (user !== null && user.length > 0) ? user.displayName.charAt(0).toUpperCase() : "C";
+    // console.log(this.firstLetter)
   }
 
   navigate(url) {
@@ -31,5 +36,10 @@ export class NavbarComponent implements OnInit {
     setTimeout(() => {
       this.authService.SignOut();
     }, 1000);
+  }
+
+  isLoggedIn() {
+    const user = JSON.parse(localStorage.getItem('user'));
+    this.firstLetter = (user !== null && user.email !== null) ? user.email.charAt(0).toUpperCase() : "C";
   }
 }

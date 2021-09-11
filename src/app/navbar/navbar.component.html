@@ -12,14 +12,14 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand" (click)="navigate('')">
-      <img width="40" src="../../assets/images/logo_3.png" alt="" />
+      <img width="40" src="../../assets/images/frq-logo.png" alt="" />
     </a>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
       <a style="display: none" class="navbar-brand" (click)="navigate('')">
         <img
           width="40"
           height="40"
-          src="../../assets/images/logo_3.png"
+          src="../../assets/images/frq-logo.png"
           alt=""
         />
       </a>
@@ -66,6 +66,7 @@
               (click)="signIn()"
               type="button"
               class="btn me-md-2 btn-outline-danger"
+              style="margin-right: 5px;"
             >
               Log In
             </button>
@@ -90,11 +91,9 @@
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  <img
-                    width="35"
-                    src="../../assets/images/frq-logo.png"
-                    alt="More"
-                  />
+                <div id="profileImage">
+                  {{this.firstLetter}}
+                </div>
                 </a>
                 <ul
                   class="dropdown-menu dropdown-menu-end"

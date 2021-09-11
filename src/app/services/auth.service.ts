@@ -144,6 +144,7 @@ export class AuthService {
       photoURL: user.photoURL !== undefined ? user.photoURL : '',
       emailVerified: user.emailVerified,
     };
+    localStorage.setItem('user', JSON.stringify(user));
     return userRef.set(userState, {
       merge: true,
     });

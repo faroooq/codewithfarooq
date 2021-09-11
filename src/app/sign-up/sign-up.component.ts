@@ -38,33 +38,41 @@ export class SignUpComponent implements OnInit {
     this.formSubmitted = false;
   }
 
+  navigate(url) {
+    this.router.navigateByUrl(url);
+  }
+
   onSubmit(value) {
     this.errorMsg = '';
     this.formSubmitted = true;
     if (this.signupForm.valid) {
       const _v = this.signupForm.value;
       if (_v.password === _v.confirm_password) {
-        this.authService
-          .SignUp(
-            _v.email,
-            _v.password,
-            _v.first_name,
-            _v.last_name,
-            _v.promotional
-          )
-          .then((result) => {
-            if (result) {
-              this.errorMsg = result;
-            } else {
-              if (this.errorMsg === '') {
-                this.router.navigate(['courses']);
+        if(_v.policy) {
+          this.authService
+            .SignUp(
+              _v.email,
+              _v.password,
+              _v.first_name,
+              _v.last_name,
+              _v.promotional
+            )
+            .then((result) => {
+              if (result) {
+                this.errorMsg = result;
+              } else {
+                if (this.errorMsg === '') {
+                  this.router.navigate(['courses']);
+                }
               }
-            }
-          })
-          .catch((error) => {
-            this.errorMsg = error.message;
-            // console.log(error.code);
-          });
+            })
+            .catch((error) => {
+              this.errorMsg = error.message;
+              // console.log(error.code);
+            });
+          } else {
+            this.errorMsg = 'Your need to agree to our Terms & Policy.';
+          }
       } else {
         this.errorMsg = 'Your password and retype password does not match!';
       }

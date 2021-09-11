@@ -26,6 +26,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { ProfileComponent } from './profile/profile.component';
+import { TermsComponent } from './terms/terms.component';
+import { PolicyComponent } from './policy/policy.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,8 @@ import { ProfileComponent } from './profile/profile.component';
     ForgetPasswordComponent,
     VerifyEmailComponent,
     ProfileComponent,
+    TermsComponent,
+    PolicyComponent,
   ],
   imports: [
     BrowserModule,
