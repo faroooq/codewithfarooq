@@ -75,6 +75,7 @@ const routes: Routes = [
   {
     path: 'login',
     component: SignInComponent,
+    canActivate: [SeoGuard],
     data: {
       title: ['codewithfarooq'],
       desc: 'The best way to learn technology is Code... Join with me and develop your coding skills.',
@@ -85,6 +86,7 @@ const routes: Routes = [
   {
     path: 'signup',
     component: SignUpComponent,
+    canActivate: [SeoGuard],
     data: {
       title: ['codewithfarooq'],
       desc: 'The best way to learn technology is Code... Join with me and develop your coding skills.',
@@ -149,4 +151,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

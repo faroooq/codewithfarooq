@@ -59,4 +59,4 @@ import { PolicyComponent } from './policy/policy.component';
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
