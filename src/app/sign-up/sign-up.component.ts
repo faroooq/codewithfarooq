@@ -20,7 +20,6 @@ export class SignUpComponent implements OnInit {
   errorMsg: string;
   signupForm = this.formBuilder.group({
     first_name: new FormControl('', [Validators.required]),
-    last_name: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
     confirm_password: new FormControl('', [Validators.required]),
@@ -54,7 +53,6 @@ export class SignUpComponent implements OnInit {
               _v.email,
               _v.password,
               _v.first_name,
-              _v.last_name,
               _v.promotional
             )
             .then((result) => {

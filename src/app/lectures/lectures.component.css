@@ -17,6 +17,24 @@
   user-select: none;
 }
 
+.highlight{ 
+  color: #fff;
+  background: lightslategray; 
+}
+
+@media screen and (min-width: 768px) {
+  .tagline {
+    padding: 1.5rem; 
+    padding-left: 2.5rem; 
+    margin: 2rem 2rem 0 2rem;
+  }
+}
+
+.tagline {
+  padding: 1.5rem; 
+  padding-left: 2.5rem; 
+}
+
 @media (min-width: 768px) {
   .bd-placeholder-img-lg {
     font-size: 3.5rem;

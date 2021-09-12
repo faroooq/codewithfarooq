@@ -41,7 +41,7 @@ export class ForgetPasswordComponent implements OnInit {
           this.errorMsg = 'No user found. please sign up.';
         } else {
           // console.log(this.successMsg);
-          this.successMsg = 'Password reset email sent, check your inbox.';
+          this.successMsg = 'Password reset email sent, please check your inbox.';
         }
       });
     }

@@ -12,7 +12,6 @@ export interface User {
   uid: string;
   email: string;
   displayName: string;
-  lastName: string;
   photoURL: string;
   emailVerified: boolean;
 }
@@ -61,7 +60,7 @@ export class AuthService {
       });
   }
 
-  SignUp(email, password, firstName, lastName, promotional) {
+  SignUp(email, password, firstName, promotional) {
     return this.afAuth
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
@@ -70,7 +69,6 @@ export class AuthService {
           uid: result.user.uid,
           email: result.user.email,
           displayName: firstName,
-          lastName: lastName,
           photoURL: result.user.photoURL,
           emailVerified: true,
         };
@@ -140,7 +138,6 @@ export class AuthService {
       uid: user.uid,
       email: user.email,
       displayName: user.displayName,
-      lastName: user.lastName !== undefined ? user.lastName : '',
       photoURL: user.photoURL !== undefined ? user.photoURL : '',
       emailVerified: user.emailVerified,
     };

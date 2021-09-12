@@ -13,11 +13,12 @@ export class LecturesComponent implements OnInit {
   courseId: number = 1001;
   empty_course: boolean;
   loading: boolean;
+  selectedLesson: string = 'Introduction';
 
   constructor(
     public firebaseService: FirebaseService,
     private activatedRoute: ActivatedRoute
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.loading = true;
@@ -41,7 +42,8 @@ export class LecturesComponent implements OnInit {
     });
   }
 
-  onClick(youtubeUrl) {
+  onClick(youtubeUrl, lesson: string) {
     this.youtubeUrl = youtubeUrl;
+    this.selectedLesson = lesson;
   }
 }

@@ -3,11 +3,24 @@
   color: #dc3545;
 }
 
+.navbar-toggler {
+  font-size: 2rem;
+}
+
 a {
   cursor: pointer;
 }
 .active {
   font-weight: 500;
+}
+
+.dropdown-menu {
+  width: 120px;
+}
+
+.dropdown-item {
+  font-size: 16px;
+  padding: 0.8rem;
 }
 
 .dropdown-item.active,
@@ -26,7 +39,7 @@ a {
   height:40px;
   border-radius: 50%;
   background: #6c757d;
-  font-size: 27px;
+  font-size: 29px;
   color: #fff;
   text-align: center;
   font-weight: 500;

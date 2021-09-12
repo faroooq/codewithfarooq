@@ -39,3 +39,8 @@
   max-width: 1140px;
   margin: 0 auto;
 }
+
+.footer__copyright {
+  font-size: 1.8rem;
+  color: #000;
+}
